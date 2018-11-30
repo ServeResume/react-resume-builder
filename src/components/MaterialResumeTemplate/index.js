@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import spacing from './Utils/spacing';
 import colors from './Utils/colors';
+import LeftColumn from './Layout/LeftColumn';
+import RightColumn from './Layout/RightColumn';
 
 const Wrapper = styled.div`
   font-family: Open Sans, sans-serif;
@@ -30,8 +32,10 @@ const SecondColumn = styled.div`
 const MaterialResumeTemplate = (resume) => (
   <Wrapper color={colors.black}>
     <FirstColumn>
+      <LeftColumn {...resume} />
     </FirstColumn>
     <SecondColumn>
+      <RightColumn {...resume} />
     </SecondColumn>
   </Wrapper>
 );
