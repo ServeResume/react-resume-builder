@@ -6,10 +6,10 @@ import contact from './resume/contact';
 import awards from './resume/awards';
 import references from './resume/references';
 import hobbies from './resume/hobbies';
-import skills from './resume/skills';
+import professionalSkills from './resume/professionalSkills';
 import workEnvironment from './resume/workEnvironment';
 import educations from './resume/educations';
-import jobs from './resume/jobs';
+import workExperiences from './resume/workExperiences';
 import {getQueryParameterByName} from './utils/url';
 
 const ResumeWrapper = styled.div`
@@ -89,10 +89,10 @@ class App extends Component {
           awards={awards}
           references={references}
           hobbies={hobbies}
-          skills={skills}
+          professionalSkills={professionalSkills}
           workEnvironment={workEnvironment}
           educations={educations}
-          jobs={jobs}
+          workExperiences={workExperiences}
         />
       </ResumeWrapper>
     );

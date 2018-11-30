@@ -103,7 +103,7 @@ const JobToolLogoWrapper = styled(Fonts.P)`
 const addDot = (str) => str.indexOf('.') < str.length - 1 ? `${str}.` : `${str}`;
 
 const JobsPaper = ({
-  jobs,
+  workExperiences,
   rolesFontColor,
   dateFontColor,
   toolBgColor,
@@ -112,32 +112,32 @@ const JobsPaper = ({
   partTimeFontColor,
 }) => (
   <JobsWrapper>
-    {jobs.map((job, index) => (
+    {workExperiences.map((workExperience, index) => (
       <JobWrapper
         isFirst={index === 0}
-        isLast={index === jobs.length - 1}
+        isLast={index === workExperiences.length - 1}
         key={index}
       >
         <JobHeader>
           <JobHeaderLeft>
             <JobTitleWrapper>
               <JobTitle>
-                {job.subtitle} at {job.title}
+                {workExperience.subtitle} at {workExperience.title}
               </JobTitle>
               {
-                job.partTime &&
+                workExperience.partTime &&
                 <PartTime bgColor={partTimeBgColor} color={partTimeFontColor}>{`part-time`}</PartTime>
               }
             </JobTitleWrapper>
             <JobDate color={dateFontColor}>
               <JobDateFrom>
-                {job.dateFrom}
+                {workExperience.dateFrom}
               </JobDateFrom>
               <JobDateSeparator>
                 -
               </JobDateSeparator>
               <JobDateTo>
-                {job.dateTo}
+                {workExperience.dateTo}
               </JobDateTo>
             </JobDate>
           </JobHeaderLeft>
@@ -145,7 +145,7 @@ const JobsPaper = ({
           </JobHeaderRight>
         </JobHeader>
         <JobRoles>
-          {job.roles.map((role, index) => (
+          {workExperience.roles.map((role, index) => (
             <JobRole color={rolesFontColor} key={index}>
               <JobRoleCheck>
                 <CheckIcon size={15} />
@@ -155,7 +155,7 @@ const JobsPaper = ({
           ))}
         </JobRoles>
         <JobToolsWrapper>
-          {job.tools.map((tool, index) => (
+          {workExperience.tools.map((tool, index) => (
             <JobToolLogoWrapper
               bgColor={toolBgColor}
               color={toolFontColor}
@@ -171,7 +171,7 @@ const JobsPaper = ({
 );
 
 JobsPaper.propTypes = {
-  jobs: PropTypes.arrayOf(PropTypes.shape({
+  workExperiences: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     partTime: PropTypes.bool,
