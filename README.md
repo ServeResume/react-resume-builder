@@ -63,5 +63,5 @@ This is an open source project and will always be, we will keep adding more and 
 
 License
 ------
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT license, Copyright (c) 2018 [ResumeInDesign](https://www.resumeindesign.com). For more information see [LICENSE.md](/LICENSE.md).
 
