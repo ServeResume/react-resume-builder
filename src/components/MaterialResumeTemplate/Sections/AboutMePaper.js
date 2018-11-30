@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Fonts from '../Utils/Fonts';
 import spacing from '../Utils/spacing';
@@ -58,6 +59,12 @@ const AboutMePaper = ({ about, jobTitleFontColor }) => (
 );
 
 AboutMePaper.propTypes = {
+  about: PropTypes.shape({
+    profileImage: PropTypes.string,
+    fullName: PropTypes.string,
+    primaryRole: PropTypes.string,
+  }),
+  jobTitleFontColor: PropTypes.string,
 };
 
 export default AboutMePaper;

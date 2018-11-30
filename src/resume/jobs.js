@@ -24,6 +24,7 @@ export default [
     subtitle: 'Front End Developer',
     dateFrom: 'Oct 2015',
     dateTo: 'Aug 2017',
+    partTime: true,
     roles: [
       'Writing components with AngularJS, SASS and Typescript.',
       'Managing data flow with Flux and RxJS.',

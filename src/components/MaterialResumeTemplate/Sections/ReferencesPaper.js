@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Fonts from '../Utils/Fonts';
 import spacing from '../Utils/spacing';
@@ -11,8 +12,8 @@ const ReferencesWrapper = styled.div`
 `;
 
 const ReferenceWrapper = styled.div`
-  ${(props) => !props.isFirst && `margin-top: ${props.verticalPadding / 2}px;`}
-  ${(props) => !props.isLast && `margin-bottom: ${props.verticalPadding / 2}px;`}
+  ${(props) => !props.isFirst && `margin-top: ${VERTICAL_PADDING / 2}px;`}
+  ${(props) => !props.isLast && `margin-bottom: ${VERTICAL_PADDING / 2}px;`}
 `;
 
 const ReferenceName = styled(Fonts.H3)`
@@ -39,10 +40,14 @@ const ReferenceEmailValue = styled(Fonts.H6)`
   margin: 0;
 `;
 
-const ReferencesPaper = ({ references, summaryColor, ...props }) => (
+const ReferencesPaper = ({ references, summaryColor }) => (
   <ReferencesWrapper>
     {references.map((reference, index) => (
-      <ReferenceWrapper verticalPadding={VERTICAL_PADDING} isFirst={index === 0} isLast={index === references.length - 1} key={index}>
+      <ReferenceWrapper
+        isFirst={index === 0}
+        isLast={index === references.length - 1}
+        key={index}
+      >
         <ReferenceName>
           {reference.name}
         </ReferenceName>
@@ -59,6 +64,12 @@ const ReferencesPaper = ({ references, summaryColor, ...props }) => (
 );
 
 ReferencesPaper.propTypes = {
+  summaryColor: PropTypes.string.isRequired,
+  references: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    jobTitle: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default ReferencesPaper;

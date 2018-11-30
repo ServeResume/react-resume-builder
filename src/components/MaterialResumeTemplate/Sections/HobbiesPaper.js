@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -35,6 +36,9 @@ const HobbiesPaper = ({ hobbies }) => (
 );
 
 HobbiesPaper.propTypes = {
+  hobbies: PropTypes.arrayOf(PropTypes.shape({
+    image: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default HobbiesPaper;

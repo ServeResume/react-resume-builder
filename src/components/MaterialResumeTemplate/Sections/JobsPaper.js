@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { MdCheck as CheckIcon } from 'react-icons/md';
 import styled from 'styled-components';
 import Fonts from '../Utils/Fonts';
@@ -12,14 +13,26 @@ const JobsWrapper = styled.div`
 `;
 
 const JobWrapper = styled.div`
-  ${(props) => !props.isFirst && `margin-top: ${props.verticalPadding / 2}px;`}
-  ${(props) => !props.isLast && `margin-bottom: ${props.verticalPadding / 2}px;`}
+  ${(props) => !props.isFirst && `margin-top: ${VERTICAL_PADDING / 2}px;`}
+  ${(props) => !props.isLast && `margin-bottom: ${VERTICAL_PADDING / 2}px;`}
+`;
+
+const JobTitleWrapper = styled.div`
+  display: flex;
 `;
 
 const JobTitle = styled(Fonts.H3)`
   display: flex;
   align-items: center;
   margin: 0;
+`;
+
+const PartTime = styled(Fonts.H6)`
+  margin: 0 10px;
+  margin-left: 10px;
+  background: ${(props) => props.bgColor};
+  color: ${(props) => props.color};
+  padding: 2px 10px;
 `;
 
 const JobDate = styled(Fonts.H5)`
@@ -36,10 +49,6 @@ const JobDateSeparator = styled.div`
 `;
 
 const JobDateTo = styled.div`
-`;
-
-const JobSummary = styled(Fonts.P)`
-  color: ${(props) => props.color};
 `;
 
 const JobHeader = styled.div`
@@ -91,20 +100,9 @@ const JobToolLogoWrapper = styled(Fonts.P)`
   padding: 2px 5px;
 `;
 
-const PartTime = styled(Fonts.H6)`
-  margin-left: 10px;
-  background: ${(props) => props.bgColor};
-  color: ${(props) => props.color};
-  padding: 1px 10px;
-  font-size: 10px;
-  margin-top: 10px;
-  margin-bottom: 0;
-`;
-
 const addDot = (str) => str.indexOf('.') < str.length - 1 ? `${str}.` : `${str}`;
 
 const JobsPaper = ({
-  useSummary = false,
   jobs,
   rolesFontColor,
   dateFontColor,
@@ -112,20 +110,25 @@ const JobsPaper = ({
   toolFontColor,
   partTimeBgColor,
   partTimeFontColor,
-  ...props
 }) => (
   <JobsWrapper>
     {jobs.map((job, index) => (
-      <JobWrapper verticalPadding={VERTICAL_PADDING} isFirst={index === 0} isLast={index === jobs.length - 1} key={index}>
+      <JobWrapper
+        isFirst={index === 0}
+        isLast={index === jobs.length - 1}
+        key={index}
+      >
         <JobHeader>
           <JobHeaderLeft>
-            <JobTitle>
-              {job.subtitle} at {job.title}
+            <JobTitleWrapper>
+              <JobTitle>
+                {job.subtitle} at {job.title}
+              </JobTitle>
               {
                 job.partTime &&
                 <PartTime bgColor={partTimeBgColor} color={partTimeFontColor}>{`part-time`}</PartTime>
               }
-            </JobTitle>
+            </JobTitleWrapper>
             <JobDate color={dateFontColor}>
               <JobDateFrom>
                 {job.dateFrom}
@@ -141,22 +144,16 @@ const JobsPaper = ({
           <JobHeaderRight>
           </JobHeaderRight>
         </JobHeader>
-        {
-          useSummary ?
-          <JobSummary>
-            {job.summary}
-          </JobSummary> :
-          <JobRoles>
-            {job.roles.map((role, index) => (
-              <JobRole color={rolesFontColor} key={index}>
-                <JobRoleCheck>
-                  <CheckIcon size={15} />
-                </JobRoleCheck>
-                <JobRoleText>{addDot(role)}</JobRoleText>
-              </JobRole>
-            ))}
-          </JobRoles>
-        }
+        <JobRoles>
+          {job.roles.map((role, index) => (
+            <JobRole color={rolesFontColor} key={index}>
+              <JobRoleCheck>
+                <CheckIcon size={15} />
+              </JobRoleCheck>
+              <JobRoleText>{addDot(role)}</JobRoleText>
+            </JobRole>
+          ))}
+        </JobRoles>
         <JobToolsWrapper>
           {job.tools.map((tool, index) => (
             <JobToolLogoWrapper
@@ -174,6 +171,21 @@ const JobsPaper = ({
 );
 
 JobsPaper.propTypes = {
+  jobs: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    partTime: PropTypes.bool,
+    dateFrom: PropTypes.string.isRequired,
+    dateTo: PropTypes.string.isRequired,
+    tools: PropTypes.arrayOf(PropTypes.string).isRequired,
+    roles: PropTypes.arrayOf(PropTypes.string).isRequired,
+  })).isRequired,
+  rolesFontColor: PropTypes.string.isRequired,
+  dateFontColor: PropTypes.string.isRequired,
+  toolBgColor: PropTypes.string.isRequired,
+  toolFontColor: PropTypes.string.isRequired,
+  partTimeBgColor: PropTypes.string.isRequired,
+  partTimeFontColor: PropTypes.string.isRequired,
 };
 
 export default JobsPaper;

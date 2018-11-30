@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FaEnvelope as MailIcon } from 'react-icons/fa';
 import { FaPhone as PhoneIcon } from 'react-icons/fa';
@@ -42,18 +43,26 @@ const VERTICAL_PADDING = spacing.contact.verticalPadding;
 
 const ContactMePaper = ({ contact, fontColor, iconFontColor, iconBgColor }) => (
   <Wrapper color={fontColor} verticalPadding={VERTICAL_PADDING}>
-    <ContactWrapper>
-      <IconWrapper bgColor={iconBgColor} color={iconFontColor}>
-        <PhoneIcon size={ICON_SIZE} />
-      </IconWrapper>
-      <ContactText href={`tel:${contact.phoneNumber}`}>{contact.phoneNumber}</ContactText>
-    </ContactWrapper>
-    <ContactWrapper>
-      <IconWrapper bgColor={iconBgColor} color={iconFontColor}>
-        <MailIcon size={ICON_SIZE} />
-      </IconWrapper>
-      <ContactText href={`mailto:${contact.mail}`}>{contact.mail}</ContactText>
-    </ContactWrapper>
+    {
+      contact.phoneNumber && (
+        <ContactWrapper>
+          <IconWrapper bgColor={iconBgColor} color={iconFontColor}>
+            <PhoneIcon size={ICON_SIZE} />
+          </IconWrapper>
+          <ContactText href={`tel:${contact.phoneNumber}`}>{contact.phoneNumber}</ContactText>
+        </ContactWrapper>
+      )
+    }
+    {
+      contact.mail && (
+        <ContactWrapper>
+          <IconWrapper bgColor={iconBgColor} color={iconFontColor}>
+            <MailIcon size={ICON_SIZE} />
+          </IconWrapper>
+          <ContactText href={`mailto:${contact.mail}`}>{contact.mail}</ContactText>
+        </ContactWrapper>
+      )
+    }
     {
       contact.website &&
       <ContactWrapper>
@@ -87,6 +96,16 @@ const ContactMePaper = ({ contact, fontColor, iconFontColor, iconBgColor }) => (
 );
 
 ContactMePaper.propTypes = {
+  contact: PropTypes.shape({
+    phoneNumber: PropTypes.string,
+    mail: PropTypes.string,
+    youtube: PropTypes.string,
+    location: PropTypes.string,
+    website: PropTypes.string,
+  }),
+  fontColor: PropTypes.string.isRequired,
+  iconFontColor: PropTypes.string.isRequired,
+  iconBgColor: PropTypes.string.isRequired,
 };
 
 export default ContactMePaper;

@@ -62,6 +62,7 @@ export default ({
       </Header>
       <Content>
         <SkillsPaper
+          columnTitleColor={colors.blue}
           inactiveColor={colors.grey200}
           activeColor={colors.blue}
           skills={workEnvironment}

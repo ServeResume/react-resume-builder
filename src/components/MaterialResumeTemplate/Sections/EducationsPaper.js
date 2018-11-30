@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Fonts from '../Utils/Fonts';
 import spacing from '../Utils/spacing';
@@ -11,8 +12,8 @@ const EducationsWrapper = styled.div`
 `;
 
 const EducationWrapper = styled.div`
-  ${(props) => !props.isFirst && `margin-top: ${props.verticalPadding / 2}px;`}
-  ${(props) => !props.isLast && `margin-bottom: ${props.verticalPadding / 2}px;`}
+  ${(props) => !props.isFirst && `margin-top: ${VERTICAL_PADDING / 2}px;`}
+  ${(props) => !props.isLast && `margin-bottom: ${VERTICAL_PADDING / 2}px;`}
 `;
 
 const EducationTitle = styled(Fonts.H3)`
@@ -40,10 +41,18 @@ const EducationDateSeparator = styled.div`
 const EducationDateTo = styled.div`
 `;
 
-const EducationsPaper = ({ educations, locationFontColor, dateFontColor, ...props }) => (
+const EducationsPaper = ({
+  educations,
+  locationFontColor,
+  dateFontColor,
+}) => (
   <EducationsWrapper>
     {educations.map((education, index) => (
-      <EducationWrapper verticalPadding={VERTICAL_PADDING} isFirst={index === 0} isLast={index === educations.length - 1} key={index}>
+      <EducationWrapper
+        isFirst={index === 0}
+        isLast={index === educations.length - 1}
+        key={index}
+      >
         <EducationTitle>
           {education.title}
         </EducationTitle>
@@ -67,6 +76,14 @@ const EducationsPaper = ({ educations, locationFontColor, dateFontColor, ...prop
 );
 
 EducationsPaper.propTypes = {
+  dateFontColor: PropTypes.string.isRequired,
+  locationFontColor: PropTypes.string.isRequired,
+  educations: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    dateFrom: PropTypes.string.isRequired,
+    dateTo: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default EducationsPaper;

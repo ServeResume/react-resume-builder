@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Fonts from '../Utils/Fonts';
 import spacing from '../Utils/spacing';
@@ -11,8 +12,8 @@ const AwardsWrapper = styled.div`
 `;
 
 const AwardWrapper = styled.div`
-  ${(props) => !props.isFirst && `margin-top: ${props.verticalPadding / 2}px;`}
-  ${(props) => !props.isLast && `margin-bottom: ${props.verticalPadding / 2}px;`}
+  ${(props) => !props.isFirst && `margin-top: ${VERTICAL_PADDING / 2}px;`}
+  ${(props) => !props.isLast && `margin-bottom: ${VERTICAL_PADDING / 2}px;`}
 `;
 
 const AwardTitle = styled(Fonts.H3)`
@@ -24,10 +25,14 @@ const AwardSummary = styled(Fonts.P)`
   color: ${(props) => props.color};
 `;
 
-const AwardsPaper = ({ awards, summaryColor, ...props }) => (
+const AwardsPaper = ({ awards, summaryColor }) => (
   <AwardsWrapper>
     {awards.map((award, index) => (
-      <AwardWrapper verticalPadding={VERTICAL_PADDING} isFirst={index === 0} isLast={index === awards.length - 1} key={index}>
+      <AwardWrapper
+        isFirst={index === 0}
+        isLast={index === awards.length - 1}
+        key={index}
+      >
         <AwardTitle>
           {award.jobTitle}
         </AwardTitle>
@@ -40,6 +45,11 @@ const AwardsPaper = ({ awards, summaryColor, ...props }) => (
 );
 
 AwardsPaper.propTypes = {
+  awards: PropTypes.arrayOf(PropTypes.shape({
+    jobTitle: PropTypes.string,
+    summary: PropTypes.string,
+  })),
+  summaryColor: PropTypes.string,
 };
 
 export default AwardsPaper;

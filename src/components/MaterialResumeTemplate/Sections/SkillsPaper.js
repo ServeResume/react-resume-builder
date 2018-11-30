@@ -40,10 +40,8 @@ const SkillColumnTitle = styled(Fonts.H5)`
 const SkillsPaper = ({
   skills,
   columnTitleColor,
-  numberOfColumns = 1,
   activeColor,
   inactiveColor,
-  ...props,
 }) => (
   <SkillsWrapper>
     {skills.map(({ title, items }, i) => (
@@ -80,6 +78,9 @@ SkillsPaper.propTypes = {
       scorePercentage: PropTypes.number.isRequired,
     })).isRequired,
   })).isRequired,
+  columnTitleColor: PropTypes.string.isRequired,
+  activeColor: PropTypes.string.isRequired,
+  inactiveColor: PropTypes.string.isRequired,
 };
 
 export default SkillsPaper;
