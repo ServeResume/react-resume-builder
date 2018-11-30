@@ -10,7 +10,7 @@ Getting Started
 -------
 Clone the repository
 ```
-git clone git@github.com/ResumeInDesign/react-resume-builder
+git clone https://github.com/ResumeInDesign/react-resume-builder.git
 cd react-resume-builder
 ```
 
