@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import WebFont from 'webfontloader';
 import 'normalize.css/normalize.css';
+import App from './App';
 
 WebFont.load({
   google: {
@@ -9,3 +10,4 @@ WebFont.load({
   },
 });
 
+ReactDOM.render(<App />, document.getElementById('root'));
