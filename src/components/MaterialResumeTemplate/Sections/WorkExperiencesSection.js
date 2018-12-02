@@ -102,7 +102,7 @@ const JobToolLogoWrapper = styled(Fonts.P)`
 
 const addDot = (str) => str.indexOf('.') < str.length - 1 ? `${str}.` : `${str}`;
 
-const JobsPaper = ({
+const WorkExperiencesSection = ({
   workExperiences,
   rolesFontColor,
   dateFontColor,
@@ -170,7 +170,7 @@ const JobsPaper = ({
   </JobsWrapper>
 );
 
-JobsPaper.propTypes = {
+WorkExperiencesSection.propTypes = {
   workExperiences: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
@@ -188,4 +188,4 @@ JobsPaper.propTypes = {
   partTimeFontColor: PropTypes.string.isRequired,
 };
 
-export default JobsPaper;
+export default WorkExperiencesSection;

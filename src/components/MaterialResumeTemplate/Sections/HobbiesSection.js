@@ -23,7 +23,7 @@ const Image = styled.img`
   width: 100%;
 `;
 
-const HobbiesPaper = ({ hobbies }) => (
+const HobbiesSection = ({ hobbies }) => (
   <Wrapper>
     {hobbies.map((hobby, index) => (
       <HobbieWrapper hobbies={hobbies} key={index}>
@@ -35,10 +35,10 @@ const HobbiesPaper = ({ hobbies }) => (
   </Wrapper>
 );
 
-HobbiesPaper.propTypes = {
+HobbiesSection.propTypes = {
   hobbies: PropTypes.arrayOf(PropTypes.shape({
     image: PropTypes.string.isRequired,
   })).isRequired,
 };
 
-export default HobbiesPaper;
+export default HobbiesSection;

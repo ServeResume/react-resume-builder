@@ -40,7 +40,7 @@ const ReferenceEmailValue = styled(Fonts.H6)`
   margin: 0;
 `;
 
-const ReferencesPaper = ({ references, summaryColor }) => (
+const ReferencesSection = ({ references, summaryColor }) => (
   <ReferencesWrapper>
     {references.map((reference, index) => (
       <ReferenceWrapper
@@ -63,7 +63,7 @@ const ReferencesPaper = ({ references, summaryColor }) => (
   </ReferencesWrapper>
 );
 
-ReferencesPaper.propTypes = {
+ReferencesSection.propTypes = {
   summaryColor: PropTypes.string.isRequired,
   references: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -72,4 +72,4 @@ ReferencesPaper.propTypes = {
   })).isRequired,
 };
 
-export default ReferencesPaper;
+export default ReferencesSection;

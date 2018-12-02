@@ -7,14 +7,14 @@ import {
 } from './Utils/Section';
 import Paper from './Utils/Paper';
 import colors from './Utils/colors';
-import AboutMePaper from './Sections/AboutMePaper';
-import SkillsPaper from './Sections/SkillsPaper';
-import JobsPaper from './Sections/JobsPaper';
-import ContactMePaper from './Sections/ContactMePaper';
-import EducationsPaper from './Sections/EducationsPaper';
-import AwardsPaper from './Sections/AwardsPaper';
-import ReferencesPaper from './Sections/ReferencesPaper';
-import HobbiesPaper from './Sections/HobbiesPaper';
+import AboutMeSection from './Sections/AboutMeSection';
+import SkillsSection from './Sections/SkillsSection';
+import WorkExperiencesSection from './Sections/WorkExperiencesSection';
+import ContactMeSection from './Sections/ContactMeSection';
+import EducationsSection from './Sections/EducationsSection';
+import AwardsSection from './Sections/AwardsSection';
+import ReferencesSection from './Sections/ReferencesSection';
+import HobbiesSection from './Sections/HobbiesSection';
 
 const SectionRenderer = ({
   sectionName,
@@ -33,7 +33,7 @@ const SectionRenderer = ({
   about: (
     <Paper>
       <Content>
-        <AboutMePaper
+        <AboutMeSection
           about={about}
           jobTitleFontColor={colors.grey700}
         />
@@ -48,7 +48,7 @@ const SectionRenderer = ({
         </Title>
       </Header>
       <Content>
-        <SkillsPaper
+        <SkillsSection
           columnTitleColor={colors.blue}
           inactiveColor={colors.grey200}
           activeColor={colors.blue}
@@ -65,7 +65,7 @@ const SectionRenderer = ({
         </Title>
       </Header>
       <Content>
-        <JobsPaper
+        <WorkExperiencesSection
           rolesFontColor={colors.grey700}
           dateFontColor={colors.blue}
           toolBgColor={colors.blue}
@@ -85,7 +85,7 @@ const SectionRenderer = ({
         </Title>
       </Header>
       <Content>
-        <ContactMePaper
+        <ContactMeSection
           iconFontColor={colors.blue}
           fontColor={colors.white}
           iconBgColor={colors.white}
@@ -102,7 +102,7 @@ const SectionRenderer = ({
         </Title>
       </Header>
       <Content>
-        <EducationsPaper
+        <EducationsSection
           locationFontColor={colors.fadedBlack}
           dateFontColor={colors.blue}
           educations={educations}
@@ -118,7 +118,7 @@ const SectionRenderer = ({
         </Title>
       </Header>
       <Content>
-        <SkillsPaper
+        <SkillsSection
           columnTitleColor={colors.blue}
           inactiveColor={colors.grey200}
           activeColor={colors.blue}
@@ -135,7 +135,7 @@ const SectionRenderer = ({
         </Title>
       </Header>
       <Content>
-        <AwardsPaper
+        <AwardsSection
           summaryColor={colors.grey700}
           awards={awards}
         />
@@ -150,7 +150,7 @@ const SectionRenderer = ({
         </Title>
       </Header>
       <Content>
-        <ReferencesPaper
+        <ReferencesSection
           summaryColor={colors.grey700}
           references={references}
         />
@@ -160,7 +160,7 @@ const SectionRenderer = ({
   hobbies: (
     <Paper>
       <Content>
-        <HobbiesPaper
+        <HobbiesSection
           hobbies={hobbies}
         />
       </Content>

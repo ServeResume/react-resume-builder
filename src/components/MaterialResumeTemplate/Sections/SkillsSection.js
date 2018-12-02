@@ -37,7 +37,7 @@ const SkillColumnTitle = styled(Fonts.H5)`
   color: ${(props) => props.color};
 `;
 
-const SkillsPaper = ({
+const SkillsSection = ({
   skills,
   columnTitleColor,
   activeColor,
@@ -70,7 +70,7 @@ const SkillsPaper = ({
   </SkillsWrapper>
 );
 
-SkillsPaper.propTypes = {
+SkillsSection.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.shape({
@@ -83,4 +83,4 @@ SkillsPaper.propTypes = {
   inactiveColor: PropTypes.string.isRequired,
 };
 
-export default SkillsPaper;
+export default SkillsSection;

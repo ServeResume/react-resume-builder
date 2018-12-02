@@ -25,7 +25,7 @@ const AwardSummary = styled(Fonts.P)`
   color: ${(props) => props.color};
 `;
 
-const AwardsPaper = ({ awards, summaryColor }) => (
+const AwardsSection = ({ awards, summaryColor }) => (
   <AwardsWrapper>
     {awards.map((award, index) => (
       <AwardWrapper
@@ -44,7 +44,7 @@ const AwardsPaper = ({ awards, summaryColor }) => (
   </AwardsWrapper>
 );
 
-AwardsPaper.propTypes = {
+AwardsSection.propTypes = {
   awards: PropTypes.arrayOf(PropTypes.shape({
     jobTitle: PropTypes.string,
     summary: PropTypes.string,
@@ -52,4 +52,4 @@ AwardsPaper.propTypes = {
   summaryColor: PropTypes.string,
 };
 
-export default AwardsPaper;
+export default AwardsSection;

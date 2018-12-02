@@ -41,7 +41,7 @@ const ContactText = styled(Fonts.A)`
 const ICON_SIZE = spacing.contact.iconSize;
 const VERTICAL_PADDING = spacing.contact.verticalPadding;
 
-const ContactMePaper = ({ contact, fontColor, iconFontColor, iconBgColor }) => (
+const ContactMeSection = ({ contact, fontColor, iconFontColor, iconBgColor }) => (
   <Wrapper color={fontColor} verticalPadding={VERTICAL_PADDING}>
     {
       contact.phoneNumber && (
@@ -95,7 +95,7 @@ const ContactMePaper = ({ contact, fontColor, iconFontColor, iconBgColor }) => (
   </Wrapper>
 );
 
-ContactMePaper.propTypes = {
+ContactMeSection.propTypes = {
   contact: PropTypes.shape({
     phoneNumber: PropTypes.string,
     mail: PropTypes.string,
@@ -108,4 +108,4 @@ ContactMePaper.propTypes = {
   iconBgColor: PropTypes.string.isRequired,
 };
 
-export default ContactMePaper;
+export default ContactMeSection;

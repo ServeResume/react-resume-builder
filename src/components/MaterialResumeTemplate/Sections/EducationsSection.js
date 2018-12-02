@@ -41,7 +41,7 @@ const EducationDateSeparator = styled.div`
 const EducationDateTo = styled.div`
 `;
 
-const EducationsPaper = ({
+const EducationsSection = ({
   educations,
   locationFontColor,
   dateFontColor,
@@ -75,7 +75,7 @@ const EducationsPaper = ({
   </EducationsWrapper>
 );
 
-EducationsPaper.propTypes = {
+EducationsSection.propTypes = {
   dateFontColor: PropTypes.string.isRequired,
   locationFontColor: PropTypes.string.isRequired,
   educations: PropTypes.arrayOf(PropTypes.shape({
@@ -86,4 +86,4 @@ EducationsPaper.propTypes = {
   })).isRequired,
 };
 
-export default EducationsPaper;
+export default EducationsSection;

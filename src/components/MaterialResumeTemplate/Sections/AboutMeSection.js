@@ -43,7 +43,7 @@ const Summary = styled(Fonts.P)`
   margin-bottom: 0;
 `;
 
-const AboutMePaper = ({ about, jobTitleFontColor }) => (
+const AboutMeSection = ({ about, jobTitleFontColor }) => (
   <AboutWrapper>
     <ProfileImageWrapper>
       <ProfileImage
@@ -58,7 +58,7 @@ const AboutMePaper = ({ about, jobTitleFontColor }) => (
   </AboutWrapper>
 );
 
-AboutMePaper.propTypes = {
+AboutMeSection.propTypes = {
   about: PropTypes.shape({
     profileImage: PropTypes.string,
     fullName: PropTypes.string,
@@ -67,4 +67,4 @@ AboutMePaper.propTypes = {
   jobTitleFontColor: PropTypes.string,
 };
 
-export default AboutMePaper;
+export default AboutMeSection;
