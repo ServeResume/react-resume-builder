@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "command-line-args": "^5.0.2",
-    "open": "0.0.5",
+    "open": "6.0.0",
     "puppeteer": "1.1.0"
   },
   "browserslist": [
