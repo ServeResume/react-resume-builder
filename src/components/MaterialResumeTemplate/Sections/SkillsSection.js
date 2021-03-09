@@ -1,9 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import SkillScore from '../Utils/SkillScore';
-import Fonts from '../Utils/Fonts';
-import spacing from '../Utils/spacing';
+import React from "react";
+import flatten from "lodash/flatten";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import SkillScore from "../Utils/SkillScore";
+import Fonts from "../Utils/Fonts";
+import spacing from "../Utils/spacing";
+import colors from "../Utils/colors";
 
 const VERTICAL_PADDING = spacing.skills.verticalPadding;
 const HORIZONTAL_PADDING = spacing.skills.horizontalPadding;
@@ -21,15 +23,13 @@ const SkillColumn = styled.div`
 `;
 
 const SkillWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const SkillTitle = styled(Fonts.H5)`
-  margin: 0;
-  flex-basis: 50%;
-  margin-right: ${spacing.skills.titleRightMargin}px;
+  background: ${colors.blue};
+  margin: 4px;
+  color: ${colors.white};
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  text-align: center;
 `;
 
 const SkillColumnTitle = styled(Fonts.H5)`
@@ -42,42 +42,32 @@ const SkillsSection = ({
   columnTitleColor,
   activeColor,
   inactiveColor,
-}) => (
-  <SkillsWrapper>
-    {skills.map(({ title, items }, i) => (
-      <SkillColumn key={i}>
-        {
-          title && (
-            <SkillColumnTitle color={columnTitleColor}>{title}</SkillColumnTitle>
-          )
-        }
-        {items.map((skill, j) => (
-          <SkillWrapper
-            key={j}
-          >
-            <SkillTitle>
-              {skill.name}
-            </SkillTitle>
-            <SkillScore
-              inactiveColor={inactiveColor}
-              activeColor={activeColor}
-              percentage={skill.scorePercentage}
-            />
-          </SkillWrapper>
-        ))}
-      </SkillColumn>
-    ))}
-  </SkillsWrapper>
-);
+}) => {
+  return (
+    <SkillsWrapper>
+      {flatten(
+        skills.map(({ title, items }, i) => {
+          return items;
+        })
+      ).map((item) => (
+        <SkillWrapper>{item.name}</SkillWrapper>
+      ))}
+    </SkillsWrapper>
+  );
+};
 
 SkillsSection.propTypes = {
-  skills: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    items: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      scorePercentage: PropTypes.number.isRequired,
-    })).isRequired,
-  })).isRequired,
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      items: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          scorePercentage: PropTypes.number.isRequired,
+        })
+      ).isRequired,
+    })
+  ).isRequired,
   columnTitleColor: PropTypes.string.isRequired,
   activeColor: PropTypes.string.isRequired,
   inactiveColor: PropTypes.string.isRequired,

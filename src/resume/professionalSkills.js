@@ -1,60 +1,83 @@
 export default [
   {
-    title: 'Frontend',
     items: [
       {
-        name: 'React',
-        scorePercentage: 95,
-      },
-      {
-        name: 'Redux',
-        scorePercentage: 95,
-      },
-      {
-        name: 'Relay',
-        scorePercentage: 75,
-      },
-      {
-        name: 'AngularJS',
-        scorePercentage: 70,
-      },
-      {
-        name: 'SASSS',
+        name: "HTML5",
         scorePercentage: 60,
       },
       {
-        name: 'Postcss',
+        name: "CSS3",
+        scorePercentage: 60,
+      },
+      {
+        name: "SASS",
         scorePercentage: 65,
       },
-    ]
+    ],
   },
   {
-    title: 'Backend',
+    title: "Javascript",
     items: [
       {
-        name: 'Nodejs',
-        scorePercentage: 80,
+        name: "React",
+        scorePercentage: 95,
       },
       {
-        name: 'Typescript',
-        scorePercentage: 70,
+        name: "Redux",
+        scorePercentage: 95,
       },
       {
-        name: 'GraphQL',
+        name: "Angular",
+        scorePercentage: 95,
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        name: "Typescript",
         scorePercentage: 75,
       },
       {
-        name: 'MongoDB',
-        scorePercentage: 50,
+        name: "Nodejs",
+        scorePercentage: 75,
       },
       {
-        name: 'MySQL',
-        scorePercentage: 40,
+        name: "Express",
+        scorePercentage: 70,
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        name: "Git",
+        scorePercentage: 75,
       },
       {
-        name: 'PHP',
-        scorePercentage: 50,
+        name: "VSCode",
+        scorePercentage: 75,
       },
-    ]
+      {
+        name: "Linux",
+        scorePercentage: 70,
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        name: "Webpack",
+        scorePercentage: 75,
+      },
+      {
+        name: "JQuery",
+        scorePercentage: 60,
+      },
+      {
+        name: "ES6/ES7",
+        scorePercentage: 60,
+      },
+    ],
   },
 ];

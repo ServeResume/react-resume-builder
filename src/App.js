@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import MaterialResumeTemplate from './components/MaterialResumeTemplate';
+import projects from './resume/projects';
 import about from './resume/about';
 import contact from './resume/contact';
 import awards from './resume/awards';
@@ -94,6 +95,7 @@ class App extends Component {
           workEnvironment={workEnvironment}
           educations={educations}
           workExperiences={workExperiences}
+          projects={projects}
         />
       </ResumeWrapper>
     );

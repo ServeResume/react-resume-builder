@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { MdCheck as CheckIcon } from 'react-icons/md';
-import styled from 'styled-components';
-import Fonts from '../Utils/Fonts';
-import spacing from '../Utils/spacing';
+import React from "react";
+import PropTypes from "prop-types";
+import { MdCheck as CheckIcon } from "react-icons/md";
+import styled from "styled-components";
+import Fonts from "../Utils/Fonts";
+import spacing from "../Utils/spacing";
 
 const VERTICAL_PADDING = spacing.jobs.verticalPadding;
 
@@ -13,21 +13,25 @@ const JobsWrapper = styled.div`
 `;
 
 const JobWrapper = styled.div`
-  ${(props) => !props.isFirst && `margin-top: ${VERTICAL_PADDING / 2}px;`}
+  ${(props) => !props.isFirst && `margin-top: ${VERTICAL_PADDING}px;`}
   ${(props) => !props.isLast && `margin-bottom: ${VERTICAL_PADDING / 2}px;`}
 `;
 
 const JobTitleWrapper = styled.div`
   display: flex;
+  align-items: start;
 `;
 
 const JobTitle = styled(Fonts.H3)`
   display: flex;
   align-items: center;
   margin: 0;
+  font-size: 18px;
+  line-height: 1.1;
 `;
 
 const PartTime = styled(Fonts.H6)`
+  flex-shrink: 0;
   margin: 0 10px;
   margin-left: 10px;
   background: ${(props) => props.bgColor};
@@ -39,17 +43,16 @@ const JobDate = styled(Fonts.H5)`
   margin: 0;
   display: flex;
   color: ${(props) => props.color};
+  min-height: 10px;
 `;
 
-const JobDateFrom = styled.div`
-`;
+const JobDateFrom = styled.div``;
 
 const JobDateSeparator = styled.div`
   padding: 0 ${spacing.jobs.datePadding}px;
 `;
 
-const JobDateTo = styled.div`
-`;
+const JobDateTo = styled.div``;
 
 const JobHeader = styled.div`
   display: flex;
@@ -57,11 +60,9 @@ const JobHeader = styled.div`
   align-items: center;
 `;
 
-const JobHeaderLeft = styled.div`
-`;
+const JobHeaderLeft = styled.div``;
 
-const JobHeaderRight = styled.div`
-`;
+const JobHeaderRight = styled.div``;
 
 const JobRoles = styled.ul`
   margin: 0;
@@ -100,7 +101,8 @@ const JobToolLogoWrapper = styled(Fonts.P)`
   padding: 2px 5px;
 `;
 
-const addDot = (str) => str.indexOf('.') < str.length - 1 ? `${str}.` : `${str}`;
+const addDot = (str) =>
+  str.indexOf(".") < str.length - 1 ? `${str}.` : `${str}`;
 
 const WorkExperiencesSection = ({
   workExperiences,
@@ -124,36 +126,51 @@ const WorkExperiencesSection = ({
               <JobTitle>
                 {workExperience.subtitle} at {workExperience.title}
               </JobTitle>
-              {
-                workExperience.partTime &&
-                <PartTime bgColor={partTimeBgColor} color={partTimeFontColor}>{`part-time`}</PartTime>
-              }
+              {workExperience.partTime && (
+                <PartTime
+                  bgColor={partTimeBgColor}
+                  color={partTimeFontColor}
+                >{`part-time`}</PartTime>
+              )}
             </JobTitleWrapper>
             <JobDate color={dateFontColor}>
-              <JobDateFrom>
-                {workExperience.dateFrom}
-              </JobDateFrom>
-              <JobDateSeparator>
-                -
-              </JobDateSeparator>
-              <JobDateTo>
-                {workExperience.dateTo}
-              </JobDateTo>
+              {workExperience.dateFrom && (
+                <>
+                  <JobDateFrom>{workExperience.dateFrom}</JobDateFrom>
+                  <JobDateSeparator>-</JobDateSeparator>
+                  <JobDateTo>{workExperience.dateTo}</JobDateTo>
+                </>
+              )}
             </JobDate>
           </JobHeaderLeft>
-          <JobHeaderRight>
-          </JobHeaderRight>
+          <JobHeaderRight />
         </JobHeader>
-        <JobRoles>
-          {workExperience.roles.map((role, index) => (
-            <JobRole color={rolesFontColor} key={index}>
-              <JobRoleCheck>
-                <CheckIcon size={15} />
-              </JobRoleCheck>
-              <JobRoleText>{addDot(role)}</JobRoleText>
-            </JobRole>
-          ))}
-        </JobRoles>
+        {workExperience.githubLinks && (
+          <JobRoles>
+            {workExperience.githubLinks.map((github, index) => (
+              <JobRole color={rolesFontColor} key={index}>
+                <JobRoleCheck>
+                  <CheckIcon size={15} />
+                </JobRoleCheck>
+                <JobRoleText>
+                  {github.title}: <a href={github.link}>{github.link}</a>
+                </JobRoleText>
+              </JobRole>
+            ))}
+          </JobRoles>
+        )}
+        {workExperience.roles && (
+          <JobRoles>
+            {workExperience.roles.map((role, index) => (
+              <JobRole color={rolesFontColor} key={index}>
+                <JobRoleCheck>
+                  <CheckIcon size={15} />
+                </JobRoleCheck>
+                <JobRoleText>{addDot(role)}</JobRoleText>
+              </JobRole>
+            ))}
+          </JobRoles>
+        )}
         <JobToolsWrapper>
           {workExperience.tools.map((tool, index) => (
             <JobToolLogoWrapper
@@ -171,15 +188,17 @@ const WorkExperiencesSection = ({
 );
 
 WorkExperiencesSection.propTypes = {
-  workExperiences: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    partTime: PropTypes.bool,
-    dateFrom: PropTypes.string.isRequired,
-    dateTo: PropTypes.string.isRequired,
-    tools: PropTypes.arrayOf(PropTypes.string).isRequired,
-    roles: PropTypes.arrayOf(PropTypes.string).isRequired,
-  })).isRequired,
+  workExperiences: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      partTime: PropTypes.bool,
+      dateFrom: PropTypes.string.isRequired,
+      dateTo: PropTypes.string.isRequired,
+      tools: PropTypes.arrayOf(PropTypes.string).isRequired,
+      roles: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ).isRequired,
   rolesFontColor: PropTypes.string.isRequired,
   dateFontColor: PropTypes.string.isRequired,
   toolBgColor: PropTypes.string.isRequired,

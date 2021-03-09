@@ -1,10 +1,10 @@
 export default [
   {
-    jobTitle: "Instructor",
-    summary: `Taught two courses (Algorithms and RESTful APIs).`,
+    jobTitle: "Penta-b",
+    summary: `Appreciation Letter for hard work`,
   },
   {
-    jobTitle: "Youtube Instructor",
-    summary: `Practical web development tutorials`,
+    jobTitle: "Students' union at Faculty of Science",
+    summary: `Head, Families and Tours Committee`,
   },
 ];
