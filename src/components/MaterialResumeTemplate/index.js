@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import spacing from './Utils/spacing';
-import colors from './Utils/colors';
-import SectionRenderer from './SectionRenderer';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import spacing from "./Utils/spacing";
+import colors from "./Utils/colors";
+import SectionRenderer from "./SectionRenderer";
 
 const Wrapper = styled.div`
   font-family: Open Sans, sans-serif;
-  background: #EDEDED;
+  background: #ededed;
   font-size: 14px;
   padding: ${spacing.verticalPadding / 2}px ${spacing.horizontalPadding}px;
   display: flex;
@@ -31,37 +31,24 @@ const SecondColumn = styled.div`
 const MaterialResumeTemplate = (resume) => (
   <Wrapper color={colors.black}>
     <FirstColumn>
-      {
-        [
-          'contact',
-          'educations',
-          'workEnvironment',
-          'awards',
-          'references',
-          'hobbies',
-        ].map(sectionName => (
+      {["contact", "educations", "workEnvironment", "awards", "hobbies"].map(
+        (sectionName) => (
           <SectionRenderer
             key={sectionName}
             sectionName={sectionName}
             resume={resume}
           />
-        ))
-      }
+        )
+      )}
     </FirstColumn>
     <SecondColumn>
-      {
-        [
-          'about',
-          'professionalSkills',
-          'workExperiences',
-        ].map(sectionName => (
-          <SectionRenderer
-            key={sectionName}
-            sectionName={sectionName}
-            resume={resume}
-          />
-        ))
-      }
+      {["about", "professionalSkills", "workExperiences"].map((sectionName) => (
+        <SectionRenderer
+          key={sectionName}
+          sectionName={sectionName}
+          resume={resume}
+        />
+      ))}
     </SecondColumn>
   </Wrapper>
 );

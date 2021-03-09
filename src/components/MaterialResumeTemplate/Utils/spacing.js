@@ -1,7 +1,7 @@
 export default {
   verticalPadding: 15,
   horizontalPadding: 15,
-  firstColumnWidth: 37,
+  firstColumnWidth: 34,
   about: {
     imageSize: 80,
     imageBottomMargin: 10,

@@ -1,60 +1,60 @@
 export default [
   {
-    title: 'Frontend',
+    title: "Infrastructure",
     items: [
       {
-        name: 'React',
-        scorePercentage: 95,
-      },
-      {
-        name: 'Redux',
-        scorePercentage: 95,
-      },
-      {
-        name: 'Relay',
-        scorePercentage: 75,
-      },
-      {
-        name: 'AngularJS',
+        name: "AWS",
         scorePercentage: 70,
       },
       {
-        name: 'SASSS',
-        scorePercentage: 60,
+        name: "Terraform",
+        scorePercentage: 95,
       },
       {
-        name: 'Postcss',
-        scorePercentage: 65,
+        name: "Micro-services",
+        scorePercentage: 70,
       },
-    ]
-  },
-  {
-    title: 'Backend',
-    items: [
       {
-        name: 'Nodejs',
+        name: "Micro-frontend",
+        scorePercentage: 95,
+      },
+      {
+        name: "CI/CD - Jenkins",
         scorePercentage: 80,
       },
       {
-        name: 'Typescript',
-        scorePercentage: 70,
+        name: "Heroku",
+        scorePercentage: 40,
+      },
+    ],
+  },
+  {
+    title: "Programming/Databases",
+    items: [
+      {
+        name: "Javascript",
+        scorePercentage: 100,
       },
       {
-        name: 'GraphQL',
+        name: "Java",
         scorePercentage: 75,
       },
       {
-        name: 'MongoDB',
+        name: "Dart",
+        scorePercentage: 75,
+      },
+      {
+        name: "MongoDB",
         scorePercentage: 50,
       },
       {
-        name: 'MySQL',
+        name: "MySQL",
         scorePercentage: 40,
       },
       {
-        name: 'PHP',
-        scorePercentage: 50,
+        name: "PostgreSQL",
+        scorePercentage: 40,
       },
-    ]
+    ],
   },
 ];
