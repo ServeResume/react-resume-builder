@@ -10,8 +10,8 @@ export default [
         scorePercentage: 100,
       },
       {
-        name: "Github",
-        scorePercentage: 95,
+        name: "TMUX",
+        scorePercentage: 100,
       },
     ],
   },

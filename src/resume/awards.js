@@ -4,6 +4,10 @@ export default [
     summary: `Taught three courses (AWS, design patterns and RESTful APIs).`,
   },
   {
+    jobTitle: "AWSHiddenWorld",
+    summary: `3D Game to visualize AWS resources. awshiddenworld.com`,
+  },
+  {
     jobTitle: "Open Source",
     summary: `github.com/kareemaly`,
   },
