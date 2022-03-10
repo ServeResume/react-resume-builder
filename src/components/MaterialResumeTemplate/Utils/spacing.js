@@ -3,7 +3,7 @@ export default {
   horizontalPadding: 15,
   firstColumnWidth: 37,
   about: {
-    imageSize: 80,
+    imageSize: 120,
     imageBottomMargin: 10,
   },
   contact: {
@@ -23,11 +23,12 @@ export default {
     verticalPadding: 15,
   },
   jobs: {
-    verticalPadding: 15,
-    datePadding: 10,
+    verticalPadding: 20,
+    datePadding: 5,
     checkPadding: 10,
     toolsTopMargin: 8,
-    toolRightMargin: 10,
+    toolRightMargin: 8,
+    toolBottomMargin: 5,
   },
   skills: {
     verticalPadding: 10,

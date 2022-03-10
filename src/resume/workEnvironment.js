@@ -2,21 +2,21 @@ export default [
   {
     items: [
       {
-        name: 'Linux',
+        name: "Windows",
         scorePercentage: 80,
       },
       {
-        name: 'Sublime',
-        scorePercentage: 100,
+        name: "Visual Studio",
+        scorePercentage: 90,
       },
       {
-        name: 'Github',
-        scorePercentage: 95,
+        name: "Github",
+        scorePercentage: 75,
       },
       {
-        name: 'Postman',
-        scorePercentage: 60,
+        name: "Eclipse",
+        scorePercentage: 80,
       },
-    ]
+    ],
   },
 ];
