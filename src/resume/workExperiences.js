@@ -56,6 +56,7 @@ export default [
     roles: [
       "Designing ERD and database schema.",
       "Building RESTful APIs with a cache layer.",
+      "Deploying NodeJS backend on Heroku.",
     ],
     tools: ["NodeJS", "Redis", "MonogoDB", "Heroku"],
   },

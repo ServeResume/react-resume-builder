@@ -16,7 +16,7 @@ export default [
       },
       {
         name: "MySQL",
-        scorePercentage: 70,
+        scorePercentage: 95,
       },
       {
         name: "MongoDB",
@@ -45,7 +45,7 @@ export default [
       },
       {
         name: "Docker",
-        scorePercentage: 70,
+        scorePercentage: 90,
       },
     ],
   },

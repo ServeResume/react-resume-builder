@@ -3,7 +3,7 @@ export default [
     items: [
       {
         name: "Windows",
-        scorePercentage: 80,
+        scorePercentage: 95,
       },
       {
         name: "Visual Studio",
@@ -15,7 +15,7 @@ export default [
       },
       {
         name: "Eclipse",
-        scorePercentage: 80,
+        scorePercentage: 90,
       },
     ],
   },
