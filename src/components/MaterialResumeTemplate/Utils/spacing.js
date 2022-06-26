@@ -1,5 +1,5 @@
 export default {
-  verticalPadding: 15,
+  verticalPadding: 13,
   horizontalPadding: 15,
   firstColumnWidth: 37,
   about: {
