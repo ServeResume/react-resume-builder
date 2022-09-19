@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Fonts from '../Utils/Fonts';
-import spacing from '../Utils/spacing';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import Fonts from "../Utils/Fonts";
+import spacing from "../Utils/spacing";
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -19,8 +19,8 @@ const ProfileImageWrapper = styled.div`
 
 const ProfileImage = styled.div`
   background: url('${(props) => props.image}');
-  background-size: cover;
-  background-position: center center;
+  background-size: 180%;
+  background-position: center top;
   width: ${spacing.about.imageSize}px;
   height: ${spacing.about.imageSize}px;
   border-radius: 50%;
@@ -46,15 +46,13 @@ const Summary = styled(Fonts.P)`
 const AboutMeSection = ({ about, jobTitleFontColor }) => (
   <AboutWrapper>
     <ProfileImageWrapper>
-      <ProfileImage
-        image={about.profileImage}
-      />
+      <ProfileImage image={about.profileImage} />
     </ProfileImageWrapper>
     <DisplayName>{about.fullName}</DisplayName>
-    <CurrentJobTitle color={jobTitleFontColor}>{about.primaryRole}</CurrentJobTitle>
-    <Summary>
-      {about.summary}
-    </Summary>
+    <CurrentJobTitle color={jobTitleFontColor}>
+      {about.primaryRole}
+    </CurrentJobTitle>
+    <Summary>{about.summary}</Summary>
   </AboutWrapper>
 );
 

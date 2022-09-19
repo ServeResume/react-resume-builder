@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { MdCheck as CheckIcon } from 'react-icons/md';
-import styled from 'styled-components';
-import Fonts from '../Utils/Fonts';
-import spacing from '../Utils/spacing';
+import React from "react";
+import PropTypes from "prop-types";
+import { MdCheck as CheckIcon } from "react-icons/md";
+import styled from "styled-components";
+import Fonts from "../Utils/Fonts";
+import spacing from "../Utils/spacing";
 
 const VERTICAL_PADDING = spacing.jobs.verticalPadding;
 
@@ -19,11 +19,17 @@ const JobWrapper = styled.div`
 
 const JobTitleWrapper = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
 const JobTitle = styled(Fonts.H3)`
   display: flex;
   align-items: center;
+  margin: 0;
+`;
+
+const JobCompanyName = styled(Fonts.H4)`
+  color: #666
   margin: 0;
 `;
 
@@ -41,15 +47,13 @@ const JobDate = styled(Fonts.H5)`
   color: ${(props) => props.color};
 `;
 
-const JobDateFrom = styled.div`
-`;
+const JobDateFrom = styled.div``;
 
 const JobDateSeparator = styled.div`
   padding: 0 ${spacing.jobs.datePadding}px;
 `;
 
-const JobDateTo = styled.div`
-`;
+const JobDateTo = styled.div``;
 
 const JobHeader = styled.div`
   display: flex;
@@ -57,11 +61,9 @@ const JobHeader = styled.div`
   align-items: center;
 `;
 
-const JobHeaderLeft = styled.div`
-`;
+const JobHeaderLeft = styled.div``;
 
-const JobHeaderRight = styled.div`
-`;
+const JobHeaderRight = styled.div``;
 
 const JobRoles = styled.ul`
   margin: 0;
@@ -95,12 +97,14 @@ const JobToolsWrapper = styled.div`
 const JobToolLogoWrapper = styled(Fonts.P)`
   margin: 0;
   margin-right: ${spacing.jobs.toolRightMargin}px;
+  margin-bottom: ${spacing.jobs.toolBottomMargin}px;
   background: ${(props) => props.bgColor};
   color: ${(props) => props.color};
   padding: 2px 5px;
 `;
 
-const addDot = (str) => str.indexOf('.') < str.length - 1 ? `${str}.` : `${str}`;
+const addDot = (str) =>
+  str.indexOf(".") < str.length - 1 ? `${str}.` : `${str}`;
 
 const WorkExperiencesSection = ({
   workExperiences,
@@ -121,28 +125,22 @@ const WorkExperiencesSection = ({
         <JobHeader>
           <JobHeaderLeft>
             <JobTitleWrapper>
-              <JobTitle>
-                {workExperience.subtitle} at {workExperience.title}
-              </JobTitle>
-              {
-                workExperience.partTime &&
-                <PartTime bgColor={partTimeBgColor} color={partTimeFontColor}>{`part-time`}</PartTime>
-              }
+              <JobTitle>{workExperience.subtitle}</JobTitle>
+              <JobCompanyName>{workExperience.title}</JobCompanyName>
+              {workExperience.partTime && (
+                <PartTime
+                  bgColor={partTimeBgColor}
+                  color={partTimeFontColor}
+                >{`part-time`}</PartTime>
+              )}
             </JobTitleWrapper>
             <JobDate color={dateFontColor}>
-              <JobDateFrom>
-                {workExperience.dateFrom}
-              </JobDateFrom>
-              <JobDateSeparator>
-                -
-              </JobDateSeparator>
-              <JobDateTo>
-                {workExperience.dateTo}
-              </JobDateTo>
+              <JobDateFrom>{workExperience.dateFrom}</JobDateFrom>
+              <JobDateSeparator>-</JobDateSeparator>
+              <JobDateTo>{workExperience.dateTo}</JobDateTo>
             </JobDate>
           </JobHeaderLeft>
-          <JobHeaderRight>
-          </JobHeaderRight>
+          <JobHeaderRight />
         </JobHeader>
         <JobRoles>
           {workExperience.roles.map((role, index) => (
@@ -171,15 +169,17 @@ const WorkExperiencesSection = ({
 );
 
 WorkExperiencesSection.propTypes = {
-  workExperiences: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    partTime: PropTypes.bool,
-    dateFrom: PropTypes.string.isRequired,
-    dateTo: PropTypes.string.isRequired,
-    tools: PropTypes.arrayOf(PropTypes.string).isRequired,
-    roles: PropTypes.arrayOf(PropTypes.string).isRequired,
-  })).isRequired,
+  workExperiences: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      partTime: PropTypes.bool,
+      dateFrom: PropTypes.string.isRequired,
+      dateTo: PropTypes.string.isRequired,
+      tools: PropTypes.arrayOf(PropTypes.string).isRequired,
+      roles: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ).isRequired,
   rolesFontColor: PropTypes.string.isRequired,
   dateFontColor: PropTypes.string.isRequired,
   toolBgColor: PropTypes.string.isRequired,
